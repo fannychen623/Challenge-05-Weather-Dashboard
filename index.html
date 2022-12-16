@@ -14,7 +14,65 @@
   </head>
 
   <body>
-    
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main class="row justify-space-between">
+      <div class="col-3">
+        <div class="card">
+          <h2>Search for a City:</h2>
+          <input type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn btn-primary" id="searchCityBtn">Search</button>
+        </div>
+        <div id="searchHistory">
+        </div>
+      </div>
+      <div class="col-8 dashboard">
+        <div class="card city-card">
+          <h3><span id="currentDate"></span><img id="currentWeather" ></h3>
+          <p>Temp: <span id="currentTemp"></span> &#8457;</p>
+          <p>Wind: <span id="currentWind"></span> MPH</p>
+          <p>Humidity: <span id="currentHumidity"></span> %</p>
+        </div><br>
+        <div class="row justify-content-between">
+          <h4>5-Day Forecast:</h4>
+          <div class="col forecast">
+            <h5 id="date1"></h5>
+            <img id="weather1" >
+            <p>Temp: <span id="temp1"></span> &#8457;</p>
+            <p>Wind: <span id="wind1"></span> MPH</p>
+            <p>Humidity: <span id="humidity1"></span> %</p>
+          </div>
+          <div class="col forecast">
+            <h5 id="date2"></h5>
+            <img id="weather2" >
+            <p>Temp: <span id="temp2"></span> &#8457;</p>
+            <p>Wind: <span id="wind2"></span> MPH</p>
+            <p>Humidity: <span id="humidity2"></span> %</p>
+          </div>
+          <div class="col forecast">
+            <h5 id="date3"></h5>
+            <img id="weather3" >
+            <p>Temp: <span id="temp3"></span> &#8457;</p>
+            <p>Wind: <span id="wind3"></span> MPH</p>
+            <p>Humidity: <span id="humidity3"></span> %</p>
+          </div>
+          <div class="col forecast">
+            <h5 id="date4"></h5>
+            <img id="weather4" >
+            <p>Temp: <span id="temp4"></span> &#8457;</p>
+            <p>Wind: <span id="wind4"></span> MPH</p>
+            <p>Humidity: <span id="humidity4"></span> %</p>
+          </div>
+          <div class="col forecast">
+            <h5 id="date5"></h5>
+            <img id="weather5" >
+            <p>Temp: <span id="temp5"></span> &#8457;</p>
+            <p>Wind: <span id="wind5"></span> MPH</p>
+            <p>Humidity: <span id="humidity5"></span> %</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- link to third party APIs (jQuery and day.js) and script file -->
