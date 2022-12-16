@@ -1,6 +1,8 @@
+var searchHistory = [];
 
-$('#searchCityBtn').on('click', function () {
+function loadWeather() {
   $('.dashboard').attr("style", "display: block")
+  $('#searchHistory').css({"border-top": "1.5px solid rgb(177, 177, 177)"});
   var city_name = $('input').val();
   var currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=36d9d4b2c52c6270947d662bf627a20f&units=imperial`;
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=36d9d4b2c52c6270947d662bf627a20f&units=imperial`;
@@ -15,6 +17,21 @@ $('#searchCityBtn').on('click', function () {
     $("#currentWeather").attr("alt", response.weather[0].description);
     $('#currentWind').text(response.wind.speed);
     $('#currentHumidity').text(response.main.humidity);
+    if (!searchHistory.includes(response.name)) {
+      if (searchHistory.length < 10) {
+        searchHistory.unshift(response.name);
+        console.log(searchHistory);
+      } else {
+        searchHistory.unshift(response.name);
+        searchHistory.splice(-1)
+      }
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+      $('#searchHistory').empty();
+      for (var i = 0; i < searchHistory.length; i++) {
+        $(`<button class="btn btn-secondary">${searchHistory[i]}</button>`).appendTo('#searchHistory');
+      };
+    };
+    $('input').val("");
   });
 
   temperature = 0;
@@ -27,7 +44,6 @@ $('#searchCityBtn').on('click', function () {
     url: forecastUrl,
     method: 'GET',
   }).then(function (response) {
-    console.log(response);
     for (var i = 0; i < 40; i++) {
       temperature = temperature + Number(response.list[i].main.temp);
       wind = wind + Number(response.list[i].wind.speed);
@@ -49,6 +65,31 @@ $('#searchCityBtn').on('click', function () {
       };
     };
   });
+};
+
+$('#searchHistory').on('click', 'button', function() {
+  console.log("search");
+  $('input').val($(this).text());
+  loadWeather();
 });
 
-$('.dashboard').attr("style", "display: none")
+
+$('#searchCityBtn').on('click', loadWeather);
+$('input').keypress(function(e) {
+    if(e.which === 13){
+		loadWeather();	
+	}
+})
+
+function init() {
+  $('.dashboard').attr("style", "display: none")
+  var storedHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    if (storedHistory !== null) {
+      searchHistory = storedHistory;
+    };
+  for (var i = 0; i < searchHistory.length; i++) {
+    $(`<button class="btn btn-secondary">${searchHistory[i]}</button>`).appendTo('#searchHistory');
+  };
+};
+  
+init()
