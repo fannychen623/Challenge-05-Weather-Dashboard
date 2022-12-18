@@ -1,9 +1,10 @@
-/* define font of planner */
+/* define font of dashboard */
 body {
   font-family: 'Trebuchet MS', sans-serif;
   margin: 0px 20px 20px 20px;
 }
 
+/* header styling */
 header {
   color: white;
   text-align: center;
@@ -12,6 +13,7 @@ header {
   background: linear-gradient(to right, #1b6494 0%, #253B91 53%, #1E2775 100%);
 }
 
+/* header styles */
 h1 {
   font-size: 36px;
   font-weight: bold;
@@ -35,6 +37,7 @@ h4 {
   margin: 10px 0px;
 }
 
+/* weather icon sizes */
 img {
   width: 50px;
   height: 50px;
@@ -58,10 +61,12 @@ img {
   margin: 10px 0px;
 }
 
+/* current weather card style */
 .city-card {
   border: 1px solid black;
 }
 
+/* 5-day forecast styles */
 .forecast {
   color: white;
   background-color: #323856;
