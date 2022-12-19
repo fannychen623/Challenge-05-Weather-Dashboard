@@ -138,12 +138,6 @@ function loadWeather() {
 };
 
 // function to define city name and run loadWeather function on click
-$('#searchHistory').on('click', 'button', function() {
-  city_name = $(this).text().toUpperCase();
-  loadWeather();
-});
-
-// function to define city name and run loadWeather function on click
 $('#searchCityBtn').on('click', function() {
   if ($('input').val() !== "") {
     city_name = $('input').val().toUpperCase();
@@ -158,6 +152,12 @@ $('input').keypress(function(e) {
     loadWeather();	
 	}
 })
+
+// function to define city name and run loadWeather function on click
+$('#searchHistory').on('click', 'button', function() {
+  city_name = $(this).text().toUpperCase();
+  loadWeather();
+});
 
 // function to run when the page initializes
 function init() {
