@@ -10,7 +10,7 @@
 ## **DESCRIPTION**
 > Topic Assessed: **Server-Side APIs** - **API Key, jQuery (ajax), fetch, etc.**
 ### **My Task**
-*Weather Dashboard* allows a user 
+*Weather Dashboard* allows a user to check the current weather and 5-day weather forecast of a city.
 > Create application from scratch. 
 >
 > Get API key and connect to [OpenWeather](https://openweathermap.org/forecast5) API
